@@ -95,4 +95,77 @@ class Curso:
         elif rango3 > rango2 and rango3 > rango1:
             return f"rango3 con {rango3} notas"
 
+    # def HayAlgunCinco(self):
+    #     existe = False
+    #     contador = 0
+    #     while contador<=len(self.__notas) and not existe:
+    #         if self.__notas[contador] == 5:
+    #             existe = True
+    #         contador += 1
+    #     return existe
+
+    # def HayAlgunCinco(self):
+    #     existe = False 
+    #     for i in range (len(self.__notas)):
+    #         if self.__notas[i] == 5:
+    #             existe = True
+    #             break 
+    #     return existe
+
+
+    def HayAlgunCinco(self):
+        existe = False 
+        for nota in self.__notas:
+            if nota == 5:
+                existe = True
+                break
+        return existe 
+    
+    #encontrar las primeras 3 notas de 1.5 y asignarles 2.5
+    #retornar la posicion en secuencia de la tercera nota con valor 5, si no aparece 3 veces el metodo retorna el valor de -1
+    
+    def encontrarUnoCinco(self): 
+        notasAsignadas = 0
+        for i in range (len(self.__notas)):
+            if self.__notas[i] == 1.5 and notasAsignadas <=3:
+                self.__notas[i] = 2.5
+                notasAsignadas += 1
+                break
+    
+    def posicionCinco(self): 
+        posicion = 0
+        numeroDeCincos = 0
+        for i in range(len(self.__notas)): 
+            if self.__notas[i] == 5.0:
+                numeroDeCincos +=1
+            elif numeroDeCincos == 3:
+                posicion = i
+                break
+        if posicion > 0:
+            return posicion
+        else:
+            return (-1)
+
+    def NotasCero(self): 
+        for i in range (len(self.__notas)):
+            if self.__nota[i] <= 3.0: 
+                self.__notas[i] = 0
+            else:
+                break 
+    
+    def calcularNotas(self):
+        suma = 0
+        valores = 0
+        for nota in self.__notas: 
+            if suma < 30:
+                suma += nota 
+                valores += 1
+            else: 
+                break
+        if suma >= 30:
+            return valores 
+        else:
+            return (-1)
+                
+                
 
