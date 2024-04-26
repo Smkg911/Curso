@@ -166,6 +166,17 @@ class Curso:
             return valores 
         else:
             return (-1)
-                
+    
+    def notaMedia(self):
+        menores = []
+        for i in range(len(self.__notas)):
+            menorLocal = 0
+            for a in range(len(self.__notas)):
+                if self.__notas[i] > self.__notas[a]:
+                    menorLocal += 1
+            menores.append(menorLocal)
+        menores.sort()
+        numero = (len(self.__notas)/2)
+        return menores[numero]
                 
 
