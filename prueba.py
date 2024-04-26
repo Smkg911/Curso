@@ -52,6 +52,6 @@ for i in range(len(notas)):
             menorLocal += 1
     menores.append(menorLocal)
 menores.sort()
-numero = (round(len(notas)/2))
-print(menores[numero])
+
+print(menores[round(len(notas)/2)])
 print(menores)

@@ -176,7 +176,6 @@ class Curso:
                     menorLocal += 1
             menores.append(menorLocal)
         menores.sort()
-        numero = (round(len(self.__notas)/2))
-        return menores[numero]
+        return menores[round(len(self.__notas)/2)]
                 
 
