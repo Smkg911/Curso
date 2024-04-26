@@ -167,15 +167,46 @@ class Curso:
         else:
             return (-1)
     
-    def notaMedia(self):
-        menores = []
+    def DarNotaRecurrente(self):
+        notaMasRecurrente = 0
+        cantidadOcurrencias = 0
+        for nota in self.__notas:
+            contador = 0
+            for nota2 in self.__notas: 
+                if nota == nota2:
+                    contador += 1
+            if contador > cantidadOcurrencias:
+                notaMasRecurrente = nota 
+                cantidadOcurrencias = contador
+        return notaMasRecurrente
+            
+    
+    # def notaMedia(self):
+    #     menores = []
+    #     notasT = self.__notas.sort
+    #     for i in range(len(self.__notas)):
+    #         menorLocal = 0
+    #         for a in range(len(self.__notas)):
+    #             if self.__notas[i] > self.__notas[a]:
+    #                 menorLocal += 1
+    #         menores.append(menorLocal)
+    #     menores.sort()
+    #     return f"la nota es {notasT[len(self.__notas)/2]} y tiene {menores[round(len(self.__notas)/2)]}"
+    
+    def notaMedia(self): 
+        notaMasMenores = 0
         for i in range(len(self.__notas)):
-            menorLocal = 0
-            for a in range(len(self.__notas)):
-                if self.__notas[i] > self.__notas[a]:
-                    menorLocal += 1
-            menores.append(menorLocal)
-        menores.sort()
-        return menores[round(len(self.__notas)/2)]
-                
-
+            contador = 0
+            for a in range(len(self.__notas)): 
+                if self.__notas[i] < self.__notas[a]: 
+                    contador += 1
+            if contador == len(self.__notas)/2:
+                notaMasMenores = self.__notas[i]
+        return(notaMasMenores)
+            
+            
+            
+    
+    #calcular una nota del curso(una nota si hay varias que lo cumplan puede retornar cualquiera) 
+    # tal que la mitad de las notas sea menores o iguales a ellas 
+    
